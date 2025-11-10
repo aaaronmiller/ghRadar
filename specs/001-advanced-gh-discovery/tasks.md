@@ -4,7 +4,7 @@
 
 - [X] Confirm feature spec, plan, research, and contracts exist
 - [X] Confirm data model file exists
-- [ ] Confirm checklists directory and baseline checklists (requirements) exist
+- [X] Confirm checklists directory and baseline checklists (requirements) exist
 
 ## Phase 1 – Core Services & Models
 
