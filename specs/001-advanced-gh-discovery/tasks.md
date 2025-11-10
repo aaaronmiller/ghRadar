@@ -34,7 +34,7 @@
 - [X] Implement `src/services/comparisonService.js`:
   - [ ] Build ComparisonSet from repoIds
   - [ ] Attach relevant RepositorySnapshots for comparison view
-- [ ] Implement `src/services/exemplarsService.js`:
+- [X] Implement `src/services/exemplarsService.js`:
   - [ ] Manage ExemplarProject records (list/save)
   - [ ] Support tags/rationale/lastReviewedAt
 
