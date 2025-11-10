@@ -17,7 +17,7 @@
 - [X] Implement `src/services/searchProfilesService.js`:
   - [ ] CRUD for SearchProfile (in-memory + simple persistence hook)
   - [ ] Load curated preset profiles ("Top Agent Frameworks", etc.)
-- [ ] Implement `src/services/scoringEngine.js` (pure functions):
+- [X] Implement `src/services/scoringEngine.js` (pure functions):
   - [ ] Compute category scores (activity, momentum, quality, community, relevance, reputation)
   - [ ] Compute overall score via weighted sum
   - [ ] Expose clear inputs/outputs for testing
