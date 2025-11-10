@@ -1,5 +1,5 @@
-const { buildComparison } = require('./comparisonService');
-const { saveSnapshots } = require('./snapshotsService');
+import { buildComparison } from './comparisonService';
+import { saveSnapshots } from './snapshotsService';
 
 describe('ComparisonService', () => {
   it('attaches snapshots for requested repos', async () => {
