@@ -1,4 +1,4 @@
-const { saveSnapshots, listSnapshots } = require('./snapshotsService');
+import { saveSnapshots, listSnapshots } from './snapshotsService';
 
 describe('SnapshotsService', () => {
   it('saves and lists snapshots by profile and repo', async () => {
