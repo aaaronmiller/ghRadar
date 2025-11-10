@@ -31,7 +31,7 @@
   - [ ] Save snapshots keyed by profileId + repoId + timestamp
   - [ ] List snapshots by profileId (and optional repoId)
   - [ ] Support in-memory store with pluggable persistence
-- [ ] Implement `src/services/comparisonService.js`:
+- [X] Implement `src/services/comparisonService.js`:
   - [ ] Build ComparisonSet from repoIds
   - [ ] Attach relevant RepositorySnapshots for comparison view
 - [ ] Implement `src/services/exemplarsService.js`:
