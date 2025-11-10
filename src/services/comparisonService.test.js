@@ -1,4 +1,4 @@
-const { buildComparison } = require('./comparisonService');
+import { buildComparison } from './comparisonService';
 const { saveSnapshots } = require('./snapshotsService');
 
 describe('ComparisonService', () => {
