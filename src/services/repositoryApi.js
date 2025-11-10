@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 const GITHUB_API_BASE = process.env.NODE_ENV === 'development' ? '/api/github' : 'https://api.github.com';
 
@@ -18,7 +18,7 @@ const api = axios.create({
 });
 
 // Fetch repository details with comprehensive data
-export const fetchRepositoryDetails = async (owner, repo) => {
+const fetchRepositoryDetails = async (owner, repo) => {
   try {
     console.log(`🔍 Fetching comprehensive data for ${owner}/${repo}...`);
     
@@ -213,7 +213,7 @@ const getDateDaysAgo = (days) => {
 };
 
 // Fetch repository issues and pull requests with detailed analysis
-export const fetchRepositoryActivity = async (owner, repo) => {
+const fetchRepositoryActivity = async (owner, repo) => {
   try {
     console.log(`📊 Fetching activity data for ${owner}/${repo}...`);
     
@@ -330,7 +330,7 @@ const analyzeActivityPatterns = (issues, pullRequests, events) => {
 };
 
 // Fetch repository traffic (requires push access)
-export const fetchRepositoryTraffic = async (owner, repo) => {
+const fetchRepositoryTraffic = async (owner, repo) => {
   try {
     const [viewsResponse, clonesResponse] = await Promise.all([
       api.get(`/repos/${owner}/${repo}/traffic/views`).catch(() => ({ data: { count: 0, uniques: 0, views: [] } })),
@@ -664,7 +664,7 @@ const calculateCommunityScore = (repo, contributors) => {
 };
 
 // Parse repository URL to extract owner and repo name
-export const parseRepositoryUrl = (url) => {
+const parseRepositoryUrl = (url) => {
   // Handle various GitHub URL formats
   const patterns = [
     /github\.com\/([^\/]+)\/([^\/]+)/,
@@ -685,7 +685,7 @@ export const parseRepositoryUrl = (url) => {
 };
 
 // Get repository categories based on topics and language
-export const categorizeRepository = (repo) => {
+const categorizeRepository = (repo) => {
   const topics = repo.topics || [];
   const language = repo.language?.toLowerCase() || '';
   const description = (repo.description || '').toLowerCase();
@@ -734,4 +734,11 @@ export const categorizeRepository = (repo) => {
   };
   
   return languageCategories[language] || 'General';
+};
+module.exports = {
+  fetchRepositoryDetails,
+  fetchRepositoryActivity,
+  fetchRepositoryTraffic,
+  parseRepositoryUrl,
+  categorizeRepository,
 };

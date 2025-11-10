@@ -67,11 +67,11 @@
 
 ## Phase 4 – Testing & Validation
 
-- [ ] Add unit tests for ScoringEngine (pure, deterministic)
-- [ ] Add tests for SearchProfilesService presets and CRUD
-- [ ] Add tests for DiscoveryEngine query-building and basic integration (mock GitHub service)
-- [ ] Add tests for SnapshotsService storage/listing
-- [ ] Add tests for ComparisonService and ExemplarService behavior
+- [X] Add unit tests for ScoringEngine (pure, deterministic)
+- [X] Add tests for SearchProfilesService presets and CRUD
+- [X] Add tests for DiscoveryEngine query-building and basic integration (mock GitHub service)
+- [X] Add tests for SnapshotsService storage/listing
+- [X] Add tests for ComparisonService and ExemplarService behavior
 - [ ] Add basic UI tests (where appropriate) for AdvancedDiscoveryPanel and ResultsView
 
 ## Phase 5 – Performance, Resilience, Polish

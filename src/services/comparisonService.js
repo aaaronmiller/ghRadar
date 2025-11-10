@@ -1,9 +1,9 @@
 // ComparisonService
 // Build comparison sets enriched with snapshots.
 
-import { listSnapshots } from './snapshotsService';
+const { listSnapshots } = require('./snapshotsService');
 
-export const buildComparison = async (set) => {
+const buildComparison = async (set) => {
   if (!set || !set.id || !Array.isArray(set.repoIds)) {
     throw new Error('Invalid ComparisonSet input');
   }
@@ -20,4 +20,7 @@ export const buildComparison = async (set) => {
     ...set,
     snapshots,
   };
+};
+module.exports = {
+  buildComparison,
 };

@@ -29,11 +29,11 @@ for (const p of presetProfiles) {
   profiles.set(p.id, p);
 }
 
-export const listProfiles = async () => {
+const listProfiles = async () => {
   return Array.from(profiles.values());
 };
 
-export const saveProfile = async (profile) => {
+const saveProfile = async (profile) => {
   if (!profile || !profile.id) {
     throw new Error('Invalid profile: id is required');
   }
@@ -48,7 +48,13 @@ export const saveProfile = async (profile) => {
   profiles.set(next.id, next);
 };
 
-export const deleteProfile = async (id) => {
+const deleteProfile = async (id) => {
   if (!id) throw new Error('Profile id is required');
   profiles.delete(id);
+};
+
+module.exports = {
+  listProfiles,
+  saveProfile,
+  deleteProfile,
 };

@@ -3,11 +3,11 @@
 
 const exemplars = new Map(); // repoId -> ExemplarProject
 
-export const listExemplars = async () => {
+const listExemplars = async () => {
   return Array.from(exemplars.values());
 };
 
-export const saveExemplar = async (exemplar) => {
+const saveExemplar = async (exemplar) => {
   if (!exemplar || !exemplar.repoId) {
     throw new Error('Invalid exemplar: repoId is required');
   }
@@ -21,4 +21,8 @@ export const saveExemplar = async (exemplar) => {
     lastReviewedAt: exemplar.lastReviewedAt || now,
   };
   exemplars.set(next.repoId, next);
+};
+module.exports = {
+  listExemplars,
+  saveExemplar,
 };

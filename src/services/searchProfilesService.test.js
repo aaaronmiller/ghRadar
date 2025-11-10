@@ -1,4 +1,4 @@
-import { listProfiles, saveProfile, deleteProfile } from './searchProfilesService';
+const { listProfiles, saveProfile, deleteProfile } = require('./searchProfilesService');
 
 describe('SearchProfilesService', () => {
   it('includes the top-agent-frameworks preset', async () => {

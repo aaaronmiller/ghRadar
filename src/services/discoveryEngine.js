@@ -1,8 +1,8 @@
 // DiscoveryEngine
 // Build GitHub search queries from SearchProfile and score results.
 
-import axios from 'axios';
-import { scoreRepository } from './scoringEngine';
+const axios = require('axios');
+const { scoreRepository } = require('./scoringEngine');
 
 const GITHUB_API_BASE = 'https://api.github.com';
 
@@ -72,7 +72,7 @@ const mapToMetrics = (repo) => {
   };
 };
 
-export const runAdvancedSearch = async (profile) => {
+const runAdvancedSearch = async (profile) => {
   if (!profile) throw new Error('SearchProfile is required');
 
   const q = buildSearchQuery(profile.filters || {});
@@ -114,4 +114,7 @@ export const runAdvancedSearch = async (profile) => {
     }
     throw new Error('Failed to execute advanced search.');
   }
+};
+module.exports = {
+  runAdvancedSearch,
 };

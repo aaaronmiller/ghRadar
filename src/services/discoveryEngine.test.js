@@ -1,14 +1,19 @@
-import axios from 'axios';
-import { runAdvancedSearch } from './discoveryEngine';
-
-jest.mock('axios');
-
-const mockGet = jest.fn();
-axios.create.mockReturnValue({ get: mockGet });
-
 describe('DiscoveryEngine', () => {
+  let runAdvancedSearch;
+  let mockGet;
+
   beforeEach(() => {
-    mockGet.mockReset();
+    mockGet = jest.fn();
+    
+    jest.doMock('axios', () => ({
+      create: jest.fn(() => ({
+        get: mockGet,
+      })),
+    }));
+    
+    // Import the module after mocking
+    const discoveryEngineModule = require('./discoveryEngine');
+    runAdvancedSearch = discoveryEngineModule.runAdvancedSearch;
   });
 
   it('builds snapshots from search results', async () => {

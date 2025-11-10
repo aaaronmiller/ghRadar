@@ -1,4 +1,4 @@
-import { listExemplars, saveExemplar } from './exemplarsService';
+const { listExemplars, saveExemplar } = require('./exemplarsService');
 
 describe('ExemplarService', () => {
   it('saves and lists exemplars', async () => {

@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 const TRENDING_API_BASE = 'https://github-trending-api.up.railway.app';
 const GITHUB_API_BASE = process.env.NODE_ENV === 'development' ? '/api/github' : 'https://api.github.com';
@@ -56,7 +56,7 @@ const mapTimePeriod = (period) => {
 };
 
 // Fetch trending repositories
-export const fetchTrendingRepositories = async (period = 'week', language = '', limit = 30) => {
+const fetchTrendingRepositories = async (period = 'week', language = '', limit = 30) => {
   try {
     const since = mapTimePeriod(period);
     
@@ -118,7 +118,7 @@ const retryApiCall = async (apiCall, maxRetries = 2) => {
 };
 
 // Check GitHub API rate limit status
-export const checkRateLimit = async () => {
+const checkRateLimit = async () => {
   try {
     const response = await githubApi.get('/rate_limit');
     const { rate } = response.data;
@@ -198,7 +198,7 @@ const testGitHubAPI = async () => {
 };
 
 // Fetch trending developers
-export const fetchTrendingDevelopers = async (period = 'week', language = '', limit = 20) => {
+const fetchTrendingDevelopers = async (period = 'week', language = '', limit = 20) => {
   try {
     // Test GitHub API first
     const apiWorking = await testGitHubAPI();
@@ -322,7 +322,7 @@ export const fetchTrendingDevelopers = async (period = 'week', language = '', li
 };
 
 // Fetch top maintainers (users with high activity in popular repos)
-export const fetchTopMaintainers = async (period = 'week', limit = 20) => {
+const fetchTopMaintainers = async (period = 'week', limit = 20) => {
   try {
     // First get trending repos to find active maintainers
     const trendingRepos = await fetchTrendingRepositories(period, '', 50);
@@ -381,7 +381,7 @@ export const fetchTopMaintainers = async (period = 'week', limit = 20) => {
 };
 
 // Fetch available languages from the trending API
-export const fetchAvailableLanguages = async () => {
+const fetchAvailableLanguages = async () => {
   try {
     const response = await trendingApi.get('/languages');
     return response.data.map(lang => ({
@@ -457,7 +457,7 @@ const estimateContributions = (repos, period) => {
 };
 
 // Update the getPopularLanguages function to use the API
-export const getPopularLanguages = async () => {
+const getPopularLanguages = async () => {
   try {
     const languages = await fetchAvailableLanguages();
     return languages.map(lang => lang.name);
@@ -503,9 +503,18 @@ const generateResponseTime = () => {
 };
 
 // Static fallback for synchronous calls
-export const getPopularLanguagesSync = () => {
+const getPopularLanguagesSync = () => {
   return [
     'JavaScript', 'Python', 'Java', 'TypeScript', 'C++', 'C#', 'PHP', 'Ruby', 
     'Go', 'Rust', 'Swift', 'Kotlin', 'Dart', 'Scala', 'R', 'Shell', 'HTML', 'CSS'
   ];
+};
+module.exports = {
+  fetchTrendingRepositories,
+  checkRateLimit,
+  fetchTrendingDevelopers,
+  fetchTopMaintainers,
+  fetchAvailableLanguages,
+  getPopularLanguages,
+  getPopularLanguagesSync,
 };

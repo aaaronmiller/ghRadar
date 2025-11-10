@@ -49,7 +49,7 @@ const scoreReputation = (m) => {
   return r * 100;
 };
 
-export const scoreRepository = (metrics, weights = DEFAULT_WEIGHTS) => {
+const scoreRepository = (metrics, weights = DEFAULT_WEIGHTS) => {
   const activity = scoreActivity(metrics);
   const momentum = scoreMomentum(metrics);
   const quality = scoreQuality(metrics);
@@ -74,4 +74,7 @@ export const scoreRepository = (metrics, weights = DEFAULT_WEIGHTS) => {
     relevance,
     reputation,
   };
+};
+module.exports = {
+  scoreRepository,
 };

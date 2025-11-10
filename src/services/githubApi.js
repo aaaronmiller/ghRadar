@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 const GITHUB_API_BASE = 'https://api.github.com';
 
@@ -8,7 +8,7 @@ const api = axios.create({
   timeout: 10000,
 });
 
-export const fetchGitHubUser = async (username) => {
+const fetchGitHubUser = async (username) => {
   try {
     const response = await api.get(`/users/${username}`);
     return response.data;
@@ -22,7 +22,7 @@ export const fetchGitHubUser = async (username) => {
   }
 };
 
-export const fetchUserRepos = async (username, perPage = 30) => {
+const fetchUserRepos = async (username, perPage = 30) => {
   try {
     const response = await api.get(`/users/${username}/repos`, {
       params: {
@@ -42,7 +42,7 @@ export const fetchUserRepos = async (username, perPage = 30) => {
   }
 };
 
-export const generateAISummary = (user, repos) => {
+const generateAISummary = (user, repos) => {
   const topLanguages = getTopLanguages(repos);
   const totalStars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
   const totalForks = repos.reduce((sum, repo) => sum + repo.forks_count, 0);
@@ -78,7 +78,7 @@ export const generateAISummary = (user, repos) => {
   return summary;
 };
 
-export const getTopLanguages = (repos) => {
+const getTopLanguages = (repos) => {
   const languageCount = {};
   
   repos.forEach(repo => {
@@ -91,4 +91,10 @@ export const getTopLanguages = (repos) => {
     .map(([language, count]) => ({ language, count }))
     .sort((a, b) => b.count - a.count)
     .slice(0, 6);
+};
+module.exports = {
+  fetchGitHubUser,
+  fetchUserRepos,
+  generateAISummary,
+  getTopLanguages,
 };
