@@ -1,5 +1,5 @@
-const axios = require('axios');
-const { runAdvancedSearch } = require('./discoveryEngine');
+import axios from 'axios';
+import { runAdvancedSearch } from './discoveryEngine';
 
 jest.mock('axios');
 
