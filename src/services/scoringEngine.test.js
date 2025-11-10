@@ -1,4 +1,4 @@
-import { scoreRepository } from './scoringEngine';
+const { scoreRepository } = require('./scoringEngine');
 
 describe('scoreRepository', () => {
   it('produces higher scores for better metrics', () => {
