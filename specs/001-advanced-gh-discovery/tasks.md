@@ -21,7 +21,7 @@
   - [ ] Compute category scores (activity, momentum, quality, community, relevance, reputation)
   - [ ] Compute overall score via weighted sum
   - [ ] Expose clear inputs/outputs for testing
-- [ ] Implement `src/services/discoveryEngine.js`:
+- [X] Implement `src/services/discoveryEngine.js`:
   - [ ] Translate SearchProfile.filters into GitHub API queries
   - [ ] Use existing axios GitHub client/service
   - [ ] Fetch repository + activity metadata in batches
