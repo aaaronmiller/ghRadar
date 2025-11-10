@@ -27,7 +27,7 @@
   - [ ] Fetch repository + activity metadata in batches
   - [ ] Call ScoringEngine to score each repo
   - [ ] Return ranked `RepositorySnapshot[]` (latest snapshot only)
-- [ ] Implement `src/services/snapshotsService.js`:
+- [X] Implement `src/services/snapshotsService.js`:
   - [ ] Save snapshots keyed by profileId + repoId + timestamp
   - [ ] List snapshots by profileId (and optional repoId)
   - [ ] Support in-memory store with pluggable persistence
