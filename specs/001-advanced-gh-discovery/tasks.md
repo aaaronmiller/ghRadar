@@ -14,7 +14,7 @@
   - [ ] RepositorySnapshot
   - [ ] ComparisonSet
   - [ ] ExemplarProject
-- [ ] Implement `src/services/searchProfilesService.js`:
+- [X] Implement `src/services/searchProfilesService.js`:
   - [ ] CRUD for SearchProfile (in-memory + simple persistence hook)
   - [ ] Load curated preset profiles ("Top Agent Frameworks", etc.)
 - [ ] Implement `src/services/scoringEngine.js` (pure functions):
