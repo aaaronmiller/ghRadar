@@ -19,6 +19,7 @@ const buildSearchQuery = (filters = {}) => {
     minCommitsLast30Days,
     minContributors,
     excludeArchived = true,
+    requireReadme,
   } = filters;
 
   const q = [];
@@ -44,7 +45,12 @@ const buildSearchQuery = (filters = {}) => {
     q.push(`pushed:>=${daysAgoIso(30)}`);
   }
 
-  // No direct qualifier for contributors; handled via metrics later when possible
+  // No direct qualifier for contributors in GitHub search API
+  // This is tracked separately in mapToMetrics and evaluated in scoring
+
+  if (requireReadme) {
+    q.push('readme:present');
+  }
 
   return q.join(' ');
 };
