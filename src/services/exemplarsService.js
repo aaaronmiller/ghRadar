@@ -18,8 +18,9 @@ const saveExemplar = async (exemplar) => {
     rationale: '',
     lastReviewedAt: now,
     ...exemplar,
-    lastReviewedAt: exemplar.lastReviewedAt || now,
   };
+  // Preserve or set lastReviewedAt
+  next.lastReviewedAt = next.lastReviewedAt || now;
   exemplars.set(next.repoId, next);
 };
 module.exports = {
