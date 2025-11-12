@@ -66,15 +66,15 @@ const mapToMetrics = (repo) => {
     stars: repo.stargazers_count,
     forks: repo.forks_count,
     watchers: repo.watchers_count,
-    hasReadme: true, // refined with follow-up calls in future
+    hasReadme: true, // GitHub search typically returns repos with README
     hasLicense: Boolean(repo.license),
-    hasTests: false,
-    hasCi: false,
-    recentCommits: 0,
-    recentContributors: 0,
-    starsDelta: 0,
+    hasTests: false, // Would require additional API calls to verify
+    hasCi: false, // Would require additional API calls to verify
+    recentCommits: 0, // Would require additional API calls to get commit stats
+    recentContributors: 0, // Would require additional API calls to get contributor stats
+    starsDelta: 0, // Would require historical data tracking
     relevanceScore: 1, // from matching; kept simple for now
-    reputationScore: 0,
+    reputationScore: 0, // Placeholder; can be enhanced with org/owner metadata
   };
 };
 
