@@ -735,7 +735,7 @@ const categorizeRepository = (repo) => {
   
   return languageCategories[language] || 'General';
 };
-module.exports = {
+export {
   fetchRepositoryDetails,
   fetchRepositoryActivity,
   fetchRepositoryTraffic,

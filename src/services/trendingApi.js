@@ -509,7 +509,7 @@ const getPopularLanguagesSync = () => {
     'Go', 'Rust', 'Swift', 'Kotlin', 'Dart', 'Scala', 'R', 'Shell', 'HTML', 'CSS'
   ];
 };
-module.exports = {
+export {
   fetchTrendingRepositories,
   checkRateLimit,
   fetchTrendingDevelopers,

@@ -18,7 +18,7 @@ const listSnapshots = async (profileId, repoId) => {
   if (!repoId) return all;
   return all.filter((s) => s.repoId === repoId);
 };
-module.exports = {
+export {
   saveSnapshots,
   listSnapshots,
 };

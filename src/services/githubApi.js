@@ -92,7 +92,7 @@ const getTopLanguages = (repos) => {
     .sort((a, b) => b.count - a.count)
     .slice(0, 6);
 };
-module.exports = {
+export {
   fetchGitHubUser,
   fetchUserRepos,
   generateAISummary,

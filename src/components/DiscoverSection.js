@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Trophy, Star, GitFork, TrendingUp, Calendar, Users, Crown, Award, Flame, Clock, Filter, RefreshCw, Code } from 'lucide-react';
-import { fetchTrendingRepositories, fetchTrendingDevelopers, fetchTopMaintainers, getPopularLanguages, getPopularLanguagesSync } from '../services/trendingApi';
+import * as trendingApi from '../services/trendingApi';
+
+const {
+  fetchTrendingRepositories,
+  fetchTrendingDevelopers,
+  fetchTopMaintainers,
+  getPopularLanguages,
+  getPopularLanguagesSync,
+} = trendingApi;
 
 const DiscoverSection = () => {
   const [activeDiscoverTab, setActiveDiscoverTab] = useState('repositories');
